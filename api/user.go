@@ -2,7 +2,7 @@ package api
 
 import (
 	"github.com/gin-gonic/gin"
-	"net/http"
+	"github.com/ltask/common/r"
 )
 
 type UserBo struct {
@@ -10,10 +10,17 @@ type UserBo struct {
 	Password string `db:"password" json:"password"` // 密码
 }
 
-func login(c *gin.Context) {
+func Login(c *gin.Context) {
 	bo := UserBo{}
 	if err := c.ShouldBindJSON(&bo); err == nil {
-		c.String(http.StatusOK, `the body should be formA`)
+		r.E(c, err)
+		return
 	}
+	r.Success(c, bo)
+	return
+}
 
+func Hello(c *gin.Context) {
+	r.Success(c, "hello")
+	return
 }

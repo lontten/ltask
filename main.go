@@ -1,6 +1,9 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"github.com/ltask/api"
+)
 
 func main() {
 	// PowerShell 脚本（每1秒输出一次）
@@ -14,12 +17,19 @@ func main() {
 	//fmt.Println("命令执行", ok)
 
 	if true {
+		// 强制日志颜色化
+		gin.ForceConsoleColor()
+
 		router := gin.Default()
 		router.GET("/ping", func(c *gin.Context) {
 			c.JSON(200, gin.H{
 				"message": "pong",
 			})
 		})
-		router.Run() // listen and serve on 0.0.0.0:8080
+
+		router.POST("/api/user/login", api.Login)
+		router.GET("/api/hello", api.Hello)
+		router.GET("/api/version", api.Version)
+		router.Run(":8080")
 	}
 }
