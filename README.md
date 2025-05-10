@@ -74,6 +74,6 @@
 ## 程序使用的组件
 
 * 定时任务调度 [Cron](https://github.com/robfig/cron)
-* UI框架 [Element UI](https://github.com/element-plus/element-plus)
+* UI框架 [element-plus](https://github.com/element-plus/element-plus)
 
 ## ChangeLog
