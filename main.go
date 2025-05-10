@@ -37,11 +37,11 @@ func main() {
 		panic("无法加载静态资源: " + err.Error())
 	}
 
-	// 注册静态文件处理
-	router.Use(staticHandler(distFS))
-
 	// 注册API路由
 	registerAPIRoutes(router)
+
+	// 注册静态文件处理
+	router.Use(staticHandler(distFS))
 
 	// 启动服务器
 	router.Run(":8080")
