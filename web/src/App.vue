@@ -38,7 +38,7 @@ const handleMouseMove = (event: MouseEvent) => {
   overflow: hidden; // 把发光效果，外部屏蔽
 }
 
-
+// 效果
 .bt::before {
   content: '';
   position: absolute;
@@ -59,15 +59,17 @@ const handleMouseMove = (event: MouseEvent) => {
 
 }
 
+// 效果，范围控制
 // 把发光内部，显示屏蔽，只显示1px
 .bt::after {
   content: ''; // 必须声明
   position: absolute; // 绝对定位，常用定位类型
-  background-color: rgba(45, 45, 45, 0.8); // 半透明深灰色背景,常用于创建遮罩层、按钮悬停效果或装饰性覆盖层
+  background-color: rgba(45, 45, 45, 0.8); // 半透明深灰色背景,常用于创建遮罩层、按钮悬停效果或装饰性覆盖层。
+  // 如果本体不设置背景色，这里因产生背景色的效果。因为这遮掩层就是用背景色做的。
   inset: 1px; // 使伪元素在父元素内部各边缩进1px，形成内嵌效果
 }
 
-
+// 效果，开关
 .bt:hover::before {
   opacity: 1; // 当鼠标移入时，发光效果，设置透明度1，完全显示
 }
